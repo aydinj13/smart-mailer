@@ -69,7 +69,7 @@ export async function POST(req: Request) {
         try {
           const args = JSON.parse(toolCall.function.arguments);
           
-          const email = await resend.emails.send({
+          await resend.emails.send({
             from: `${user.firstName || "Smart Mailer"} ${user.lastName} <smart-mailer@aydinjoshi.com>`,
             to: args.to,
             subject: args.subject,

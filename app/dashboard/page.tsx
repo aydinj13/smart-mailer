@@ -1,7 +1,6 @@
 "use client";
-import { useState } from 'react';
 import { UserButton } from "@clerk/nextjs";
-import { MessageSquare, FileText, BarChart2, Settings, HelpCircle, Bot, Home } from 'lucide-react';
+import { MessageSquare, FileText, BarChart2 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
