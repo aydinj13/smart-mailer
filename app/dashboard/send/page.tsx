@@ -1,12 +1,11 @@
 "use client"
 
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import { UserButton } from "@clerk/nextjs";
 import { MessageSquare, Send, Copy, Search } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useHistory } from '@/hooks/use-history';
 import Sidebar from '@/components/Sidebar';
 
 
@@ -73,7 +72,7 @@ export default function ChatInterface() {
   };
 
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: { target: { value: SetStateAction<string>; }; }) => {
     setInput(e.target.value);
   };
 
