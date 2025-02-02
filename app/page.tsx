@@ -191,8 +191,13 @@ export default function LandingPage() {
     );
   }
   
-  // Enhanced Feature component with hover effects
-  function Feature({ icon, title, description }) {
+  interface FeatureProps {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+  }
+  
+  function Feature({ icon, title, description }: FeatureProps) {
     return (
       <div className="group p-6 rounded-xl bg-white/50 hover:bg-gradient-to-r from-blue-50 to-purple-50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 border border-gray-200/50">
         <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">

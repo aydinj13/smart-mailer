@@ -9,17 +9,31 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useHistory } from '@/hooks/use-history';
 import Sidebar from '@/components/Sidebar';
 
+
+interface EmailPreview {
+  to: string;
+  subject: string;
+  body: string;
+}
+
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+  error?: boolean;
+  emailPreview?: EmailPreview;
+}
+
 export default function ChatInterface() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]); // Add explicit typing here
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (!input.trim()) return;
     setIsLoading(true);
 
-    const userMessage = {
+    const userMessage: Message = {
       role: 'user',
       content: input,
     };
@@ -40,7 +54,7 @@ export default function ChatInterface() {
       }
 
       const data = await response.json();
-      setMessages((prevMessages) => [...prevMessages, userMessage, data]);
+      setMessages([...messages, userMessage, data]);
     } catch (error) {
       console.error('Error:', error);
       setMessages([
@@ -58,7 +72,8 @@ export default function ChatInterface() {
     }
   };
 
-  const handleInputChange = (e) => {
+
+  const handleInputChange = (e: any) => {
     setInput(e.target.value);
   };
 
@@ -85,32 +100,22 @@ export default function ChatInterface() {
   );
 
   const HistorySidebar = () => {
-    const { history, loading } = useHistory();
-  
-    if (loading) {
-      return <div className="w-80 border-l p-4">Loading history...</div>;
-    }
-  
-    const emailCount = history?.emails?.length || 0;
-  
     return (
       <div className="w-80 border-l p-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-semibold">History</h2>
           <span className="text-sm text-gray-500">
-            {emailCount} emails sent
+            0 emails sent
           </span>
         </div>
         <div className="space-y-2">
-          {history?.emails?.map((email) => (
             <Button 
-              key={email.id} 
               variant="ghost" 
               className="w-full justify-start text-left"
             >
-              <span className="truncate">{email.subject}</span>
+              <span className="truncate">Super Bowl Party at Andrew&apos;s</span>
             </Button>
-          ))} 
+
         </div>
       </div>
     );
