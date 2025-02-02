@@ -97,7 +97,7 @@ export default function LandingPage() {
                   <div className="flex items-start space-x-3 justify-end">
                     <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-4 max-w-[80%]">
                       <p className="text-white">
-                        I'll help you compose a professional email for your team
+                        I&apos;ll help you compose a professional email for your team
                         meeting.
                       </p>
                     </div>

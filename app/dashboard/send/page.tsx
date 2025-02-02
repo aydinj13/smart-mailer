@@ -2,12 +2,10 @@
 
 import { useState } from 'react';
 import { UserButton } from "@clerk/nextjs";
-import { MessageSquare, FileText, BarChart2, Settings, HelpCircle, Send, Copy, ThumbsUp, ThumbsDown, RefreshCcw, Search, Bot } from 'lucide-react';
+import { MessageSquare, Send, Copy, Search } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Badge } from "@/components/ui/badge";
 import { useHistory } from '@/hooks/use-history';
 import Sidebar from '@/components/Sidebar';
 

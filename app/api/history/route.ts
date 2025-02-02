@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { supabase } from '@/utils/supabase';
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     const { userId } = auth();
     if (!userId) {

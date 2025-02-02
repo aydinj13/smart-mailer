@@ -1,15 +1,9 @@
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
 } from '@clerk/nextjs'
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from './providers';
-import { Navbar } from '@/components/Navbar';
 
 const dmsans = DM_Sans({
   subsets: ["latin"],

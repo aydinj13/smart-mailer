@@ -1,8 +1,8 @@
 import OpenAI from 'openai';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
-import { auth, currentUser } from '@clerk/nextjs/server';
-import { supabase } from '@/utils/supabase';
+import { currentUser } from '@clerk/nextjs/server';
+
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
